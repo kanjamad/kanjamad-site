@@ -35,20 +35,43 @@ $(document).ready(function () {
 		});
 	});
 
-	// Smooth scroll this mother!
-	$('.menu-icon').on('click', function(e) {
-	  // prevent the standard link operation on click
-	  e.preventDefault();
-	  // use the href of the link to identify what
-	  // section to scroll to
-	  var thisTarget = $(this).attr('href');
-	  // get that section's top offset
-	  var targetOffset = $(thisTarget).offset().top;
-	  // use jQuery.animate() to animate the body's
-	  // scrollTop to the targetOffest
-	  $('body').animate({
-	    scrollTop: targetOffset
-	  }, 600);
-	});
+	       // Transition effect for navbar and back-to-top icon
+				 $(window).scroll(function() {
+          // checks if window is scrolled more than 500px, adds/removes solid class
+          if($(this).scrollTop() > 550) { 
+              $('.navbar').addClass('solid');
+              $('.back-to-top').addClass('visible'); 
+          } else {
+              $('.navbar').removeClass('solid');
+              $('.back-to-top').removeClass('visible');  
+          }
+
+        });
+
+
+        // Scrolling effect for Arrow icons
+        $("#scrollIcon").click(function(e) {
+            e.preventDefault();
+            $.scrollTo($("#about"), 1000);
+        });
+        $("#nav-about").click(function(e) {
+            e.preventDefault();
+            $.scrollTo($("#about"), 1000);
+        });
+        $("#nav-portfolio").click(function(e) {
+            e.preventDefault();
+            $.scrollTo($("#portfolio"), 1000);
+        });
+        $("#nav-contact").click(function(e) {
+            e.preventDefault();
+            $.scrollTo($("#contact"), 1000);
+        });
+        $(".navbar-brand").click(function(e) {
+            e.preventDefault();
+            $.scrollTo(0, 1000);
+				});
+				
+
+
 
 });
