@@ -1,5 +1,13 @@
 $(document).ready(function () {
 
+
+	$('#main-Name').click(function(event) {
+		event.preventDefault();
+		console.log("click kanjamad bosel!!!!!!!");
+		$('.fa-rocket').animate({left: '550px'}, 4000);
+
+	});
+
 	$('.contact').on('submit', function (evt) {
 		evt.preventDefault();
 
@@ -20,31 +28,50 @@ $(document).ready(function () {
 				var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 				var isValidEmailAddress = re.test($currentField.val());
 				if (!isValidEmailAddress) {
-			    $currentField.addClass('error');
+			$currentField.addClass('error');
 					$currentField.siblings('.error-message').text('Please enter a valid email address.').fadeIn();
 					// After adding error styles, move on to the next field and skip the next steps for that input/textarea
 					return;
-			  }
+			}
 
 			} 
 
-			// Since we used return above, the below code will only run if the field has input and, if it is an email field, has a valid email address.
+			// Since we used return above, 
+			// the below code will only run 
+			// if the field has input and, 
+			// if it is an email field, has a valid email address.
 			$currentField.removeClass('error');
 			$currentField.siblings('.error-message').hide();
+
+			
+
+
 
 		});
 	});
 
+
+
+	$('form').on('click', function(event) {
+		event.preventDefault();
+		console.log('click!!!!!!!!!!!!');
+		$('.fa-car-side').animate({left: '550px'}, 4000);
+		$(this).replaceWith('<h1>Thank you for submit the form..........</h1>');
+	});
+
+
+
+	
 	       // Transition effect for navbar and back-to-top icon
-				 $(window).scroll(function() {
+				$(window).scroll(function() {
           // checks if window is scrolled more than 500px, adds/removes solid class
-          if($(this).scrollTop() > 550) { 
-              $('.navbar').addClass('solid');
-              $('.back-to-top').addClass('visible'); 
-          } else {
-              $('.navbar').removeClass('solid');
-              $('.back-to-top').removeClass('visible');  
-          }
+        if($(this).scrollTop() > 550) { 
+            $('.navbar').addClass('solid');
+            $('.back-to-top').addClass('visible'); 
+        } else {
+            $('.navbar').removeClass('solid');
+            $('.back-to-top').removeClass('visible');  
+        }
 
         });
 
